@@ -6,7 +6,8 @@ ARG VAULT_VERSION=1.4.0
 # Create a vault user and group first so the IDs get set the same way,
 # even as the rest of this may change over time.
 RUN addgroup vault && \
-    adduser -S -G vault,root vault
+    adduser -S -G vault vault && \
+    addgroup vault root
 
 # Set up certificates, our base tools, and Vault.
 RUN set -eux; \
